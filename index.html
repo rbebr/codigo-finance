@@ -1,0 +1,183 @@
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8"> <!-- Formatação usada para conjunto de caracteres -->
+	<meta name="viewport" content="width=device-width" , initial-scale="1.0">
+	<!-- Responsividade vários dispositivos -->
+
+	<title> Dev Finance$ </title>
+	<link rel="stylesheet" href="./style.css">
+
+	<!-- Fontes -> https://fonts.google.com/
+	Clicar em view Select para ver as fontes selecionadas
+	copiar a linha como link - poppins -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,700;1,100;1,200;1,400&display=swap"
+		rel="stylesheet">
+
+
+</head>
+
+<body style="color:red">
+
+	<!-- Cabeçalho -->
+	<!-- Utilizar alt para Acessibilidade-->
+	<header>
+		<img src="./assets/logo.svg" alt="Logo Dev Finance">
+	</header>
+
+	<!-- Conteúdo Principal -->
+	<main class=container>
+
+		<!-- Dentro do main tem 2 seções: Balance e Transações
+		     ID deve ser único
+		     CLASS classificação de conteúdo -->
+		<section id="Balance">
+
+			<h2 class="sr-only"> balanço </h2>
+
+			<!-- DIV é um container -->
+			<div class="card">
+				<h3>
+					<span> Entradas </span> <!-- Deixar o elemento em linha -->
+					<img src="./assets/income.svg" alt="Imagem de Entradas">
+				</h3>
+				<p id="incomeDisplay"> R$ 5.000,00 </p>
+			</div>
+			<div class="card">
+				<h3>
+					<span> Saídas </span> <!-- Deixar o elemento em linha -->
+					<img src="./assets/expense.svg" alt="Imagem de saídas">
+				</h3>
+				<p id="expenseDisplay">R$ 2.000,00</p>
+			</div>
+			<div class="card total">
+				<h3>
+					<span> Total </span>
+					<!--Deixar o elemento em linha-->
+					<img src="./assets/total.svg" alt="Imagem de total">
+				</h3>
+				<p id="totalDisplay"> R$ 3.000,00 </p>
+			</div>
+
+		</section>
+
+		<section id="Transaction">
+
+			<h2 class="sr-only"> Transações </h2>
+
+			<!-- a.button.new(O Emete já monta as classes) -->
+			<a href="#" onclick="Modal.open()" class="button new">+Nova Transação</a>
+			<!-- o # mantem o controle na mesma página -->
+
+			<table id="data-table">
+				<thead>
+					<tr>
+						<th>
+							<Descrição>Descrição</Descrição>
+						</th>
+						<th>
+							<Valor>Valor</Valor>
+						</th>
+						<th> 
+							<Data>Data</Data> 
+						</th>
+						<th></th>
+					</tr>
+				</thead>
+				<!--
+				<tbody>
+					<tr>
+						<td class="description"> Luz </td>
+						<td class="expense"> R$ 0,00 </td>
+						<td class="date"> 23/01/2021 </td>
+						<td> <img src=./assets/minus.svg alt="Remover transação"> </td>
+					</tr>
+					<tr>
+						<td class="description"> Criação Website </td>
+						<td class="income"> R$ 0,00 </td>
+						<td class="date"> 23/01/2021 </td>
+						<td> <img src=./assets/minus.svg alt="Remover transação"> </td>
+					</tr>
+					<tr>
+						<td class="description"> Internet </td>
+						<td class="expense"> R$ 0,00 </td>
+						<td class="date"> 23/01/2021 </td>
+						<td> <img src=./assets/minus.svg alt="Remover transação"> </td>
+					</tr>
+				</tbody>
+				-->
+
+			</table>
+
+		</section>
+
+	</main>
+
+	<div class="modal-overlay">
+		<div class="modal">
+			<div id="form">
+				<h2> Nova Transação</h2>
+				<form action="" onsubmit="form.submit(event)">
+					<div class="input-group">
+						<label class="sr-only" for="description">Descrição</label>
+						<input type="text" id="description" name="description" placeholder="Descrição" />
+						<!-- value="Rodrigo Bretz" -->
+					</div>
+
+					<div class="input-group">
+						<label class="sr-only" for="amount">Valor</label>
+						<input type="number" step="0.01" id="amount" name="amount" placeholder="Descrição" />
+						<!-- value="Mayk Brito" -->
+						<!-- Deixa o texto um pouco pequeno -->
+						<small class="help">
+							Use o sinal -(negativo) para despesas e, (vírgula para
+								casas decimais							
+						</small>
+					</div>
+
+					<div class="input-group">
+
+						<label class="sr-only" for="date">Data</label>
+						<input type="date" id="date" name="date" placeholder="Data" />
+						<!-- value="Mayk Brito" -->
+					</div>
+
+					<!-- input-group actions -->
+					<div class="input-group actions">
+						<!-- a.button cancel -->
+						<a onclick="Modal.close()" href="#" class="button cancel">Cancelar</a>
+						<button>Salvar</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Rodapé -->
+	<footer>
+		<p> dev.finance$ </p>
+	</footer>
+
+	<!-- alert('abri o modal') -->
+	<script src="./scripts.js">
+
+	/*	const Modal = {
+			open(){
+				document.querySelector('.modal-overlay')
+				.classList.add('active')
+			},
+			close(){
+				document.querySelector('.modal-overlay')
+				.classList.remove('active')
+
+			}
+		}
+	*/	
+	</script>
+
+</body>
+
+</html>
